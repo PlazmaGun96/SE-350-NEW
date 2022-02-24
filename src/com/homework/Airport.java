@@ -2,33 +2,35 @@ package com.homework;
 
 import java.util.Objects;
 
-public class Airport {
-    private String AirportName;
+public class Airport{
+    private String Airport;
 
     public Airport(String name) throws BadParameterException {
-        setAirportName(name);
+        setAirport(name);
 
     }
 
-    protected void setAirportName(String name) throws BadParameterException {
+    protected void setAirport(String name) throws BadParameterException {
         if (name.length() != 3) {
-            throw new BadParameterException("Value passed to setName is not length of 3: " + getAirportName());
+            throw new BadParameterException("Value passed to setAirport is not length of 3: " + getAirport());
         }
         char[] charArray = name.toCharArray();
         for(int i=0; i < name.length(); i++){
 
             //if any character is not in upper case, return false
             if( !Character.isUpperCase( charArray[i] ))
-                throw new BadParameterException("Value passed to setName is not all Capital letters: " + getAirportName());
+                throw new BadParameterException("Value passed to setAirport is not all Capital letters: " + getAirport());
         }
-        AirportName = name;
+        Airport = name;
     }
 
-    public String getAirportName(){return AirportName;
+    public String getAirport(){return Airport;
     }
+
     public String toString() {
-        return String.format("%-20s %s%n", "Airport Name:", getAirportName());
+        return String.format("%-20s %s%n", "Airport:", getAirport());
     }
+
 
     public boolean equals(Airport o) {
         if (o == null) return false;
@@ -43,7 +45,7 @@ public class Airport {
     }
 
     public int hashCode() {
-        return Objects.hash(AirportName);
+        return Objects.hash(Airport);
     }
 }
 

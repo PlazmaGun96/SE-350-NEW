@@ -12,7 +12,7 @@ public class CommercialFlight implements Flight{
     private String flightNumber;
     private Date departureTime;
 
-    public CommercialFlight(String air1, String origin1, String destination1) throws NullParameterException, BadParameterException {
+    public CommercialFlight(String air1, String origin1, String destination1) throws NullParameterException{
         setAirline(air1);
         setOrigin(origin1);
         setDestination(destination1);
@@ -20,24 +20,24 @@ public class CommercialFlight implements Flight{
         setDepartureTime();
     }
 
-    private void setAirline(String name) throws NullParameterException, BadParameterException {
+    private void setAirline(String name) throws NullParameterException{
         if (name == null) {
             throw new NullParameterException("Null value passed in for setName");
         }
-        airline = new Airline(name);
+        airline = AirlineFactory.getAirline(name);
     }
 
-    private void setOrigin(String name) throws NullParameterException, BadParameterException {
+    private void setOrigin(String name) throws NullParameterException{
         if (name == null) {
             throw new NullParameterException("Null value passed in for setName");
         }
-        origin = new Airport(name);
+        origin = AirportFactory.getAirport(name);
     }
-    private void setDestination(String name) throws NullParameterException, BadParameterException {
+    private void setDestination(String name) throws NullParameterException{
         if (name == null) {
             throw new NullParameterException("Null value passed in for setName");
         }
-        destination = new Airport(name);
+        destination = AirportFactory.getAirport(name);
     }
 
     private void setFlightNumber(){
@@ -73,7 +73,7 @@ public class CommercialFlight implements Flight{
 
     public boolean equals(CommercialFlight o) {
         if (o == null) return false;
-        if ((this.getFlightNumber() == o.getFlightNumber()) && this.getDepartureTime() == o.getDepartureTime())
+        if ((this.getFlightNumber().equals(o.getFlightNumber())) && this.getDepartureTime() == o.getDepartureTime())
         return true;
         return false;
     }

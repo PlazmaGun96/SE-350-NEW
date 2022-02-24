@@ -3,8 +3,8 @@ package com.homework;
 public class TravelManager {
     public static void main(String[] args) throws BadParameterException, NullParameterException {
 
-        FlightManager.getInstance().createFlight("CommercialFLight", "Mongol", "ORD", "MNG");
-        FlightManager.getInstance().createFlight("CommercialFLight", "America", "MNG", "ORD");
+        FlightManager.getInstance().createFlight("CommercialFlight", "Mongol", "ORD", "MNG");
+        FlightManager.getInstance().createFlight("PassengerFlight", "America", "MNG", "ORD");
 
         String s0 = FlightManager.getInstance().getFlightNumber(0);
         System.out.println("s0 = " + s0);

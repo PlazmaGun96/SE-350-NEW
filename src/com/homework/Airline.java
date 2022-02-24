@@ -2,24 +2,24 @@ package com.homework;
 
 import java.util.Objects;
 
-public class Airline {
-    private String AirlineName;
+public class Airline{
+    private String Airline;
 
     public Airline(String name) throws BadParameterException {
-        setAirlineName(name);
+        setAirline(name);
     }
 
-    protected void setAirlineName(String name) throws BadParameterException{
+    protected void setAirline(String name) throws BadParameterException{
         if (name.length() <= 0 || name.length() >= 8) {
-            throw new BadParameterException("Value passed to setName is not between lengths of 0 and 8: " + getAirlineName());
+            throw new BadParameterException("Value passed to setAirline is not between lengths of 0 and 8: " + getAirline());
         }
-        AirlineName = name;
+        Airline = name;
     }
 
-    public String getAirlineName() {return AirlineName;}
+    public String getAirline() {return Airline;}
 
     public String toString() {
-        return String.format("%-20s %s%n", "Airline Name:", getAirlineName());
+        return String.format("%-20s %s%n", "Airline:", getAirline());
     }
 
     public boolean equals(Airline o) {
@@ -35,7 +35,7 @@ public class Airline {
     }
 
     public int hashCode() {
-        return Objects.hash(AirlineName);
+        return Objects.hash(Airline);
     }
 }
 
