@@ -3,10 +3,11 @@ package com.homework;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlightManager{
+public class FlightManager {
 
     private static FlightManager ourInstance;
-    private List<Flight> flights;
+    private static List<Flight> flights;
+    public FlightManager getInstance;
 
     public static FlightManager getInstance(){//} throws BadParameterException {
         if (ourInstance == null)
@@ -15,7 +16,7 @@ public class FlightManager{
         return ourInstance;
     }
 
-    private FlightManager(){
+    public FlightManager(){
         flights = new ArrayList<>();
     }
 
@@ -23,14 +24,14 @@ public class FlightManager{
         flights.add(FlightFactory.createFlight(type, air1, origin1, destination1));
     }
 
-    public String getFlightNumber(int i){
+    public static String getFlightNumber(int i){
         if (!flights.isEmpty()){
             return flights.get(i).getFlightNumber();
         }
         return "None";
     }
 
-    public Flight getFlightByNumber(String flightNumber) throws BadParameterException {
+    public static Flight getFlightByNumber(String flightNumber) throws BadParameterException {
         if (!flights.isEmpty()) {
             for (int i = 0; i < flights.toArray().length; i++) {
                 if (flightNumber == flights.get(i).getFlightNumber()) return flights.get(i);

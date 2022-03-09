@@ -3,15 +3,16 @@ package com.homework;
 public class TravelManager {
     public static void main(String[] args) throws BadParameterException, NullParameterException {
 
-        FlightManager.getInstance().createFlight("CommercialFlight", "Mongol", "ORD", "MNG");
-        FlightManager.getInstance().createFlight("PassengerFlight", "America", "MNG", "ORD");
+        FlightManager flightManager = new ProxyFlightManager();
+        flightManager.createFlight("CommercialFlight", "Mongol", "ORD", "MNG");
+        flightManager.createFlight("PassengerFlight", "America", "MNG", "ORD");
 
-        String s0 = FlightManager.getInstance().getFlightNumber(0);
+        String s0 = flightManager.getFlightNumber(0);
         System.out.println("s0 = " + s0);
-        System.out.println(FlightManager.getInstance().getFlightByNumber(s0));
-        String s1 = FlightManager.getInstance().getFlightNumber(1);
+        System.out.println(((ProxyFlightManager) flightManager).getFlightByFlightNumber(s0));
+        String s1 = flightManager.getFlightNumber(1);
         System.out.println("s1 = " + s1);
-        System.out.println(FlightManager.getInstance().getFlightByNumber(s1));
+        System.out.println(((ProxyFlightManager) flightManager).getFlightByFlightNumber(s1));
 
     }
 }
