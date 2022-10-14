@@ -25,7 +25,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A project using Object Oriented Design Principles.
+This project showcases Object Oriented Design Principles and was made in SE 350 Object Oriented Software Development course at Depaul University.
 
 ### Built With
 
