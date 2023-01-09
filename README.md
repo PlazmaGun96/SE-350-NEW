@@ -4,7 +4,7 @@
     </a>
     <h3 align="center">Airport</h3>
     <p align="center">
-        A Project by Tergel Enkhtur
+        By Tergel Enkhtur
     </p>
 </p>
 
